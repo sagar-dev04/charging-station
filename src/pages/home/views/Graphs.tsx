@@ -59,6 +59,7 @@ const Graphs = () => {
         ticks: {
           color: Colors.WHITE,
           callback: (value: number | string) => `$${value}K`,
+          stepSize: 20, // Ensures only 5 points on the y-axis (0, 20, 40, 60, 80, 100)
         },
         grid: {
           color: Colors.BLACK_30,
