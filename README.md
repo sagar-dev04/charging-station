@@ -46,7 +46,7 @@ A web-based dashboard for visualizing and analyzing data related to electric veh
 ## Technical Decisions and Trade-offs
 
 - **Framework**: Chose React 19 for its component-based architecture and performance optimizations.
-- **State Management**: Used React Context API for simplicity, avoiding the overhead of Redux.
+- **State Management**: Used React useState for simplicity, avoiding the overhead of Redux.
 - **Build Tool**: Vite was selected for its fast build times and modern tooling.
 - **Trade-offs**:
   - Opted for simplicity over scalability in state management, which may require refactoring for larger datasets.
