@@ -80,3 +80,7 @@ A web-based dashboard for visualizing and analyzing data related to electric veh
    ```
 3. Access the application at the URL provided in the terminal (e.g., `http://localhost:5173`).
 4. Make changes to the code, and the application will automatically reload with Vite's hot module replacement.
+
+A little preview to the dashboard...
+<img width="1728" alt="image" src="https://github.com/user-attachments/assets/60916099-bdd9-49e6-991d-575ac6d07a98" />
+
