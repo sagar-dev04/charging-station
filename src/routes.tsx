@@ -30,7 +30,7 @@ export const router = createBrowserRouter([
   // Define the application's routing structure
   {
     path: LOGIN,
-    element: <ProtectedRoute endpoint={LOGIN} element={<Login />} />,
+    element: <Login />,
   },
   {
     // Route for the upload data page
