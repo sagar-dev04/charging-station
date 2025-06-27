@@ -18,50 +18,52 @@ import {
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Layout from "./pages/layout/Layout";
+import ProtectedRoute from "./ProtectedRoute";
 import Settings from "./pages/settings/Settings";
 import UploadData from "./pages/uploadData/UploadData";
 import PageNotFound from "./pages/layout/PageNotFound";
 import Notifications from "./pages/notifications/Notifications";
 import PendingRequests from "./pages/pendingRequests/PendingRequests";
 
+
 export const router = createBrowserRouter([
   // Define the application's routing structure
   {
     path: LOGIN,
-    element: <Login />,
+    element: <ProtectedRoute endpoint={LOGIN} element={<Login />} />,
   },
   {
     // Route for the upload data page
     // Route for the main application layout
     // Route for the login page
     path: APP,
-    element: <Layout />,
+    element: <ProtectedRoute element={<Layout />} />,
     children: [
       // Nested routes within the main application layout
       {
         path: UPLOAD_DATA,
-        element: <UploadData />,
+        element: <ProtectedRoute element={<UploadData />} />,
       },
       {
         // Route for the home page
         // Route for the notifications page
         path: NOTIFICATIONS,
-        element: <Notifications />,
+        element: <ProtectedRoute element={<Notifications />} />,
       },
       {
         // Route for the pending requests page
         path: PENDING_REQUESTS,
-        element: <PendingRequests />,
+        element: <ProtectedRoute element={<PendingRequests />} />,
       },
 
       {
         path: HOME,
-        element: <Home />,
+        element: <ProtectedRoute element={<Home />} />,
       },
       {
         // Route for the settings page
         path: SETTINGS,
-        element: <Settings />,
+        element: <ProtectedRoute element={<Settings />} />,
       },
     ],
   },
