@@ -16,12 +16,18 @@ import {
   PENDING_REQUESTS,
 } from "./urls";
 import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
 import Layout from "./pages/layout/Layout";
+import Settings from "./pages/settings/Settings";
+import UploadData from "./pages/uploadData/UploadData";
+import PageNotFound from "./pages/layout/PageNotFound";
+import Notifications from "./pages/notifications/Notifications";
+import PendingRequests from "./pages/pendingRequests/PendingRequests";
 
 export const router = createBrowserRouter([
   {
     path: LOGIN,
-    // element: <Login />,
+    element: <Login />,
   },
   {
     path: APP,
@@ -29,15 +35,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: UPLOAD_DATA,
-        // element: <UploadData />,
+        element: <UploadData />,
       },
       {
         path: NOTIFICATIONS,
-        // element: <Notifications />,
+        element: <Notifications />,
       },
       {
         path: PENDING_REQUESTS,
-        // element: <PendingRequests />,
+        element: <PendingRequests />,
       },
 
       {
@@ -46,12 +52,12 @@ export const router = createBrowserRouter([
       },
       {
         path: SETTINGS,
-        // element: <Settings />,
+        element: <Settings />,
       },
     ],
   },
   {
     path: "*",
-    // element: <PageNotFound />,
+    element: <PageNotFound />,
   },
 ]);

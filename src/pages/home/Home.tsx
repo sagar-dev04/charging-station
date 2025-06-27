@@ -93,7 +93,7 @@ const Home = () => {
           </Stack>
         </Stack>
         <BestScenariosResults />
-        <Stack flex={1} direction="row" gap="1rem">
+        <Stack rowGap="3rem" flexWrap="wrap" direction="row" columnGap="1rem">
           <Graphs />
           <KeyPerformanceIndicators />
         </Stack>

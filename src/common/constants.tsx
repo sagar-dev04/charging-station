@@ -1,8 +1,10 @@
-import { IoMdHome } from "react-icons/io";
 import { FaBell } from "react-icons/fa";
-import { RiSettings3Fill } from "react-icons/ri";
-import { GrDocumentTime } from "react-icons/gr";
+import { IoMdHome } from "react-icons/io";
 import { MdCloudUpload } from "react-icons/md";
+import { GrDocumentTime } from "react-icons/gr";
+import { RiSettings3Fill } from "react-icons/ri";
+
+import { Colors } from "./colors";
 
 interface Variable {
   name: string;
@@ -100,11 +102,13 @@ export const dummyVariableData: VariableCategory[] = [
 export const variablesAccordionData = [
   {
     summary: "Primary Variables",
-    details: "These variables are essential for the core functionality of the system and directly impact its performance and user experience.",
+    details:
+      "These variables are essential for the core functionality of the system and directly impact its performance and user experience.",
   },
   {
     summary: "Secondary Variables",
-    details: "These variables support the primary variables and enhance the overall functionality of the system, providing additional insights and capabilities.",
+    details:
+      "These variables support the primary variables and enhance the overall functionality of the system, providing additional insights and capabilities.",
   },
 ];
 
@@ -145,5 +149,59 @@ export const menuTabs = [
   {
     label: "Settings",
     icon: <RiSettings3Fill fontSize="1.4rem" />,
-  }
+  },
 ];
+
+export const keyPerformanceIndicatorsData = [
+  {
+    header: "Infrastructure Units",
+    description: "This describes variable two and what the shown data means.",
+    value: "€421.07",
+  },
+  {
+    header: "Charging Growth",
+    description: "This describes variable two and what the shown data means.",
+    value: "33.07",
+  },
+  {
+    header: "Localization change",
+    description: "This describes variable two and what the shown data means.",
+    value: "21.9%",
+  },
+  {
+    header: "Fleet growth",
+    description: "This describes variable two and what the shown data means.",
+    value: "7.03%",
+  },
+];
+
+export const graphDummyData = {
+  labels: [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+  ],
+  datasets: [
+    {
+      label: "",
+      data: [38.7, 20, 51.4, 40, 89.6, 60, 60, 36.9, 53.2, 59],
+      borderColor: Colors.LIME_400,
+      backgroundColor: Colors.LIME_400,
+      pointBackgroundColor: Colors.LIME_400,
+      pointBorderColor: Colors.LIME_600,
+      pointHoverBackgroundColor: Colors.LIME_300,
+      pointHoverBorderColor: Colors.LIME_700,
+      tension: 0,
+      borderWidth: 3,
+      pointRadius: 6,
+      pointHoverRadius: 8,
+    },
+  ],
+};

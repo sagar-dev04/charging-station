@@ -10,6 +10,7 @@ export enum Colors {
   BLACK_40 = "#242424",
   BLACK_50 = "#2C2E33",
   WHITE = "#FFFFFF",
+  GRAY_10 = "#BBBBBB",
 
   // Lime color palette - from lightest to darkest
   LIME_50 = "#F7FFE8",   // Very light lime background
