@@ -1,8 +1,9 @@
 import { IoMenu } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
+import { SignedIn } from "@clerk/clerk-react";
+import CustomUserButton from "../../components/CustomUserButton";
 import { IconButton, Stack, Tab, TabList, Tabs, Tooltip } from "@mui/joy";
-import { SignedIn, UserButton } from "@clerk/clerk-react";
 
 import {
   HOME,
@@ -42,58 +43,59 @@ const Layout = () => {
       <Stack direction="row" width="100%" height="100%">
         <Stack
           py="1rem"
-          gap="1rem"
           width="5rem"
-          height="100%"
           alignItems="center"
+          justifyContent="space-between"
         >
-          <IconButton sx={{ width: "2.5rem", height: "2.5rem" }}>
-            <IoMenu fontSize="1.4rem" />
-          </IconButton>
-          <Tabs
-            value={menuIndex}
-            orientation="vertical"
-            aria-label="Bottom Navigation"
-            sx={{
-              width: "100%",
-              bgcolor: "transparent",
-              justifyContent: "center",
-            }}
-            onChange={(_event, value) => setMenuIndex(value as number)}
-          >
-            <TabList
-              size="md"
-              disableUnderline
-              sx={{ borderRadius: "sm", p: 0, gap: "1rem" }}
+          <Stack gap="1rem" alignItems="center">
+            <IconButton sx={{ width: "2.5rem", height: "2.5rem" }}>
+              <IoMenu fontSize="1.4rem" />
+            </IconButton>
+            <Tabs
+              value={menuIndex}
+              orientation="vertical"
+              aria-label="Bottom Navigation"
+              sx={{
+                width: "100%",
+                bgcolor: "transparent",
+                justifyContent: "center",
+              }}
+              onChange={(_event, value) => setMenuIndex(value as number)}
             >
-              {menuTabs.map((tab, tabIndex) => (
-                <Tooltip
-                  size="sm"
-                  key={tabIndex}
-                  title={tab.label}
-                  variant="outlined"
-                  disableInteractive
-                >
-                  <Tab
-                    color="neutral"
-                    disableIndicator
-                    orientation="vertical"
-                    sx={{
-                      width: "2.5rem",
-                      height: "2.5rem",
-                      borderRadius: "10px",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                    variant={tabIndex === menuIndex ? "outlined" : "plain"}
+              <TabList
+                size="md"
+                disableUnderline
+                sx={{ borderRadius: "sm", p: 0, gap: "1rem" }}
+              >
+                {menuTabs.map((tab, tabIndex) => (
+                  <Tooltip
+                    size="sm"
+                    key={tabIndex}
+                    title={tab.label}
+                    variant="outlined"
+                    disableInteractive
                   >
-                    {tab.icon}
-                  </Tab>
-                </Tooltip>
-              ))}
-            </TabList>
-          </Tabs>
-          <UserButton />
+                    <Tab
+                      color="neutral"
+                      disableIndicator
+                      orientation="vertical"
+                      sx={{
+                        width: "2.5rem",
+                        height: "2.5rem",
+                        borderRadius: "10px",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                      variant={tabIndex === menuIndex ? "outlined" : "plain"}
+                    >
+                      {tab.icon}
+                    </Tab>
+                  </Tooltip>
+                ))}
+              </TabList>
+            </Tabs>
+          </Stack>
+          <CustomUserButton />
         </Stack>
         <Outlet />
       </Stack>
