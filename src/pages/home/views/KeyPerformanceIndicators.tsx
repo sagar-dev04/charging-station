@@ -50,10 +50,15 @@ const KeyPerformanceIndicators = () => {
               {/* Displays the KPI header */}
               <AiOutlineQuestionCircle />
             </Stack>
-            <Typography level="12-regular" textColor={Colors.GRAY_10}>
-              {/* Displays the KPI description */}
-              {item.description}
-            </Typography>
+            <Stack height="100%" justifyContent="space-between">
+              <Typography level="12-regular" textColor={Colors.GRAY_10}>
+                {/* Displays the KPI description */}
+                {item.description}
+              </Typography>
+              <Typography textAlign="end" level="32-semibold">
+                {item.value}
+              </Typography>
+            </Stack>
           </Card>
         ))}
       </Stack>
