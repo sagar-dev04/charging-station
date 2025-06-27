@@ -7,10 +7,13 @@ import {
   AccordionSummary,
 } from "@mui/joy";
 import { IoIosArrowDown } from "react-icons/io";
+
 import { Colors } from "../../../common/colors";
 
 const VariablesAccordion = ({ data }) => (
+  // Component for rendering an accordion group to display variable categories
   <AccordionGroup
+    // Group of accordions for organizing variable categories
     disableDivider
     sx={{
       gap: "1rem",
@@ -20,7 +23,9 @@ const VariablesAccordion = ({ data }) => (
     }}
   >
     {data.map((item, index) => (
+      // Map through the data to render each category as an accordion
       <Accordion
+        // Accordion component styled with borders and padding
         key={index}
         variant="outlined"
         sx={{
@@ -30,6 +35,7 @@ const VariablesAccordion = ({ data }) => (
         }}
       >
         <AccordionSummary
+          // Summary section of the accordion with a title and an indicator
           color="lime"
           indicator={
             <IoIosArrowDown
@@ -42,13 +48,16 @@ const VariablesAccordion = ({ data }) => (
           }
         >
           <Typography level="20-medium" textColor={Colors.LIME_10}>
+            {/* Displays the summary title for the accordion */}
             {item.summary}
           </Typography>
         </AccordionSummary>
         <AccordionDetails>{item.details}</AccordionDetails>
+        {/* Displays the details content of the accordion */}
       </Accordion>
     ))}
   </AccordionGroup>
 );
 
 export default VariablesAccordion;
+// Export the VariablesAccordion component for use in other views

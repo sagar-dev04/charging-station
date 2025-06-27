@@ -20,6 +20,7 @@ interface VariableCardProps {
 }
 
 const VariablesCard = (props: VariableCardProps) => {
+  // Component for rendering variable categories and their selectable chips
   const {
     data,
     isSelected,
@@ -32,6 +33,7 @@ const VariablesCard = (props: VariableCardProps) => {
 
   return (
     <Card
+      // Card container for displaying variable categories and chips
       sx={{
         p: "1.5rem",
         height: "20rem",
@@ -42,13 +44,16 @@ const VariablesCard = (props: VariableCardProps) => {
       <Stack gap="1.5rem">
         {data.map((category, index) => (
           <Box key={index}>
+            {/* Box for each variable category */}
             <Stack gap="1rem">
               <Typography level="15-medium">
+                {/* Displays the category name and the count of selected variables */}
                 {category.categoryName}{" "}
                 {getSelectionCount(category.categoryName) > 0 &&
                   `(${getSelectionCount(category.categoryName)} selected)`}
               </Typography>
               <Stack direction="row" flexWrap="wrap" gap={2}>
+                {/* Stack for arranging variable chips */}
                 {category.variables.map((variable) => {
                   const selected = isSelected(
                     category.categoryName,
@@ -56,6 +61,7 @@ const VariablesCard = (props: VariableCardProps) => {
                   );
                   return (
                     <Chip
+                      // Chip component for each variable, with selection and hover functionality
                       key={variable.name}
                       variant="plain"
                       color={selected ? "lime" : "neutral"}
@@ -75,6 +81,7 @@ const VariablesCard = (props: VariableCardProps) => {
                       onMouseLeave={onHoverEnd}
                     >
                       <Checkbox
+                        // Checkbox for selecting or deselecting a variable
                         overlay
                         size="sm"
                         disableIcon
@@ -99,3 +106,4 @@ const VariablesCard = (props: VariableCardProps) => {
 };
 
 export default VariablesCard;
+// Export the VariablesCard component for use in the Edit Variables drawer

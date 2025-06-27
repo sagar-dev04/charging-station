@@ -17,6 +17,7 @@ interface VariableCategory {
 }
 
 export const dummyVariableData: VariableCategory[] = [
+  // Sample data for variable categories and their descriptions
   {
     categoryName: "Variable Category 1",
     variables: [
@@ -100,6 +101,7 @@ export const dummyVariableData: VariableCategory[] = [
 ];
 
 export const variablesAccordionData = [
+  // Data for accordion sections in the UI
   {
     summary: "Primary Variables",
     details:
@@ -113,6 +115,7 @@ export const variablesAccordionData = [
 ];
 
 export const homeTabs = [
+  // Tabs displayed on the home page
   {
     label: "Charging Stations",
   },
@@ -125,11 +128,13 @@ export const homeTabs = [
 ];
 
 export const bestScenarioResults = [
+  // Predefined results for the best scenarios
   "The best found configuration based on profit is characterized by 11 zones (max) with charging stations and 48 total number of poles.",
   "The best found configuration based on satisfied demand is characterized by 11 zones (max) with charging stations and 48 total number of poles.",
 ];
 
 export const menuTabs = [
+  // Menu tabs with labels and icons for navigation
   {
     label: "Home",
     icon: <IoMdHome fontSize="1.4rem" />,
@@ -153,6 +158,7 @@ export const menuTabs = [
 ];
 
 export const keyPerformanceIndicatorsData = [
+  // Data for displaying key performance indicators (KPIs)
   {
     header: "Infrastructure Units",
     description: "This describes variable two and what the shown data means.",
@@ -176,6 +182,7 @@ export const keyPerformanceIndicatorsData = [
 ];
 
 export const graphDummyData = {
+  // Placeholder data for rendering graphs
   labels: [
     "Jan",
     "Feb",

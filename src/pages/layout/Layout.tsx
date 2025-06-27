@@ -1,7 +1,7 @@
 import { IoMenu } from "react-icons/io5";
 import { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router";
 import { SignedIn } from "@clerk/clerk-react";
+import { Outlet, useNavigate } from "react-router";
 import CustomUserButton from "../../components/CustomUserButton";
 import { IconButton, Stack, Tab, TabList, Tabs, Tooltip } from "@mui/joy";
 
@@ -15,10 +15,13 @@ import {
 import { menuTabs } from "../../common/constants";
 
 const Layout = () => {
+  // Main layout component for the application, including navigation and content rendering
   const [menuIndex, setMenuIndex] = useState(0);
+  // State to track the active menu tab index
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Effect to navigate to the appropriate route based on the active menu tab
     switch (menuIndex) {
       case 1:
         navigate(NOTIFICATIONS);
@@ -40,8 +43,11 @@ const Layout = () => {
 
   return (
     <SignedIn>
+      {/* Render the layout only when the user is signed in */}
       <Stack direction="row" width="100%" height="100%">
+        {/* Main container for the layout, including navigation and content */}
         <Stack
+          // Sidebar stack for navigation and user actions
           py="1rem"
           width="5rem"
           alignItems="center"
@@ -52,6 +58,7 @@ const Layout = () => {
               <IoMenu fontSize="1.4rem" />
             </IconButton>
             <Tabs
+              // Vertical tabs for navigation between different sections
               value={menuIndex}
               orientation="vertical"
               aria-label="Bottom Navigation"
@@ -68,6 +75,7 @@ const Layout = () => {
                 sx={{ borderRadius: "sm", p: 0, gap: "1rem" }}
               >
                 {menuTabs.map((tab, tabIndex) => (
+                  // Map through menu tabs and render each as a tooltip-wrapped tab
                   <Tooltip
                     size="sm"
                     key={tabIndex}
@@ -96,11 +104,14 @@ const Layout = () => {
             </Tabs>
           </Stack>
           <CustomUserButton />
+          {/* User button for account-related actions */}
         </Stack>
         <Outlet />
+        {/* Placeholder for rendering the active route's content */}
       </Stack>
     </SignedIn>
   );
 };
 
 export default Layout;
+// Export the Layout component for use in routing

@@ -22,8 +22,11 @@ import BestScenariosResults from "./views/BestScenariosResults";
 import KeyPerformanceIndicators from "./views/KeyPerformanceIndicators";
 
 const Home = () => {
+  // Main component for rendering the home page, including tabs, search, and graphs
   const [index, setIndex] = useState(0);
+  // State to manage the active tab index
   const [openDrawer, setOpenDrawer] = useState(false);
+  // State to manage the visibility of the Edit Variables drawer
 
   return (
     <Stack width={`calc(100vw - 5rem)`} height="100%">
@@ -34,6 +37,7 @@ const Home = () => {
         justifyContent="space-between"
       >
         <Tabs
+          // Tab navigation for switching between different sections of the home page
           value={index}
           aria-label="Bottom Navigation"
           sx={{ bgcolor: "transparent" }}
@@ -54,6 +58,7 @@ const Home = () => {
           </TabList>
         </Tabs>
         <Input
+          // Search bar with an icon for filtering content
           placeholder="Search"
           startDecorator={<IoIosSearch fontSize="1.2rem" />}
         />
@@ -68,11 +73,13 @@ const Home = () => {
         border={`1px solid ${Colors.BLACK_30}`}
       >
         <Stack
+          // Container for the main content area, including graphs and KPIs
           direction="row"
           alignItems="center"
           justifyContent="space-between"
         >
           <Typography level="32-semibold" startDecorator={<GiElectric />}>
+            {/* Title for the active tab, with an electric icon */}
             {homeTabs[index].label}
           </Typography>
           <Stack direction="row" gap="1rem">
@@ -93,14 +100,19 @@ const Home = () => {
           </Stack>
         </Stack>
         <BestScenariosResults />
+        {/* Component to display the best scenario results */}
         <Stack rowGap="3rem" flexWrap="wrap" direction="row" columnGap="1rem">
           <Graphs />
+          {/* Component to render data visualization graphs */}
           <KeyPerformanceIndicators />
+          {/* Component to display key performance indicators */}
         </Stack>
       </Stack>
       <EditVariables openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
+      {/* Drawer component for editing variables */}
     </Stack>
   );
 };
 
 export default Home;
+// Export the Home component for use in routing and other parts of the application

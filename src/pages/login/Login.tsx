@@ -6,9 +6,12 @@ import { SignedOut, SignInButton, SignUpButton } from "@clerk/clerk-react";
 import { HOME } from "../../urls";
 
 const Login = () => {
+  // Component for rendering the login page with sign-in and sign-up options
   const navigate = useNavigate();
+  // Hook to programmatically navigate to other routes
 
   useEffect(() => {
+    // Redirect to the home page if the user is already signed in
     // Check if the user is already signed in and redirect to HOME
     const isSignedIn = localStorage.getItem("isSignedIn"); // Replace with actual auth check
     if (isSignedIn) {
@@ -18,7 +21,9 @@ const Login = () => {
 
   return (
     <SignedOut>
+      {/* Render the login page only when the user is signed out */}
       <Box
+        // Container for the login page layout
         sx={{
           display: "flex",
           minHeight: "100vh",
@@ -28,17 +33,19 @@ const Login = () => {
         }}
       >
         <Stack
+          // Stack for aligning the login form elements
           spacing={4}
           sx={{
-            width: "100%",
-            maxWidth: "400px",
             p: 4,
-            borderRadius: "lg",
+            width: "100%",
             boxShadow: "lg",
+            maxWidth: "400px",
+            borderRadius: "lg",
             bgcolor: "background.surface",
           }}
         >
           <Stack spacing={2} alignItems="center">
+            {/* Header section with the platform title and description */}
             <Typography level="h2" component="h1">
               Data Visualization Platform
             </Typography>
@@ -49,12 +56,14 @@ const Login = () => {
 
           <Stack spacing={2}>
             <SignInButton forceRedirectUrl={HOME}>
+              {/* Button for signing in, redirects to the home page */}
               <Button size="lg" variant="solid" color="primary" fullWidth>
                 Sign In
               </Button>
             </SignInButton>
 
             <SignUpButton>
+              {/* Button for signing up */}
               <Button size="lg" variant="outlined" color="neutral" fullWidth>
                 Sign Up
               </Button>
@@ -67,3 +76,4 @@ const Login = () => {
 };
 
 export default Login;
+// Export the Login component for use in routing

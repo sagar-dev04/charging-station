@@ -1,22 +1,23 @@
 import {
-  Title,
-  Legend,
-  Tooltip,
-  LinearScale,
-  LineElement,
-  PointElement,
-  CategoryScale,
-  Chart as ChartJS,
+  Title, // Enables chart titles
+  Legend, // Handles chart legends
+  Tooltip, // Provides tooltips for data points
+  LinearScale, // Defines linear scaling for axes
+  LineElement, // Renders line elements in the chart
+  PointElement, // Renders points on the chart
+  CategoryScale, // Handles category-based scaling for axes
+  Chart as ChartJS, // Main Chart.js object
 } from "chart.js";
 import { useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2"; // React wrapper for Chart.js
 import { Stack, Typography, Card, Select, Option } from "@mui/joy";
 
-import { Colors } from "../../../common/colors";
-import { graphDummyData } from "../../../common/constants";
+import { Colors } from "../../../common/colors"; // Centralized color definitions
+import { graphDummyData } from "../../../common/constants"; // Placeholder data for the graph
 
 // Register Chart.js components
 ChartJS.register(
+  // Register necessary Chart.js components
   CategoryScale,
   LinearScale,
   PointElement,
@@ -27,15 +28,19 @@ ChartJS.register(
 );
 
 const Graphs = () => {
-  const [selectedValue, setSelectedValue] = useState();
+  // Main component for rendering graphs
+  const [selectedValue, setSelectedValue] = useState(); // State for dropdown selection
   const options = {
+    // Configuration options for the graph
     responsive: true,
     maintainAspectRatio: false,
     interaction: {
+      // Interaction settings for tooltips and hover
       intersect: false,
       mode: "index" as const,
     },
     plugins: {
+      // Plugin configurations for tooltips and legends
       tooltip: {
         enabled: true,
         callbacks: {
@@ -53,7 +58,9 @@ const Graphs = () => {
       },
     },
     scales: {
+      // Axis configurations
       y: {
+        // Y-axis configuration
         beginAtZero: true,
         max: 100,
         ticks: {
@@ -66,17 +73,20 @@ const Graphs = () => {
         },
       },
       x: {
+        // X-axis configuration
         ticks: { color: Colors.WHITE },
         grid: { display: false },
       },
     },
   };
 
-  const handleChange = (_event: any, newValue: any) => {
+  const handleChange = (_, newValue) => {
+    // Handles dropdown value changes
     setSelectedValue(newValue);
   };
 
   const dropdownOptions = [
+    // Options for the dropdown menu
     { value: "unsatisfied_demand", label: "Unsatisfied Demand %" },
     { value: "average_wait_time", label: "Average Wait Time (mins)" },
     { value: "average_charging_time", label: "Average Charging Time (mins)" },
@@ -84,15 +94,25 @@ const Graphs = () => {
   ];
 
   return (
+    // Render the graph and dropdown components
     <Stack flex={4} gap="1rem" minWidth="30rem">
-      <Typography level="24-semibold">Graphs</Typography>
+      {" "}
+      {/* Main container for the graph */}
+      <Typography level="24-semibold">Graphs</Typography>{" "}
+      {/* Title for the graph section */}
       <Card sx={{ bgcolor: Colors.BLACK_40, p: "2rem" }}>
-        <Select
+        {" "}
+        {/* Card container for the graph */}
+        <Select // Dropdown for selecting graph options
           size="sm"
           value={selectedValue}
           onChange={handleChange}
           defaultValue={dropdownOptions[0].value}
-          sx={{ width: "15rem", bgcolor: Colors.BLACK_20, alignSelf: "flex-end" }}
+          sx={{
+            width: "15rem",
+            bgcolor: Colors.BLACK_20,
+            alignSelf: "flex-end",
+          }}
         >
           {dropdownOptions.map((option) => (
             <Option key={option.value} value={option.value}>
@@ -101,11 +121,14 @@ const Graphs = () => {
           ))}
         </Select>
         <Stack height="100%" flex={1}>
-          <Line data={graphDummyData} options={options} />
+          {" "}
+          {/* Container for the graph */}
+          <Line data={graphDummyData} options={options} />{" "}
+          {/* Line chart component */}
         </Stack>
       </Card>
     </Stack>
   );
 };
 
-export default Graphs;
+export default Graphs; // Export the Graphs component

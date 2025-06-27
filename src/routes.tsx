@@ -25,23 +25,31 @@ import Notifications from "./pages/notifications/Notifications";
 import PendingRequests from "./pages/pendingRequests/PendingRequests";
 
 export const router = createBrowserRouter([
+  // Define the application's routing structure
   {
     path: LOGIN,
     element: <Login />,
   },
   {
+    // Route for the upload data page
+    // Route for the main application layout
+    // Route for the login page
     path: APP,
     element: <Layout />,
     children: [
+      // Nested routes within the main application layout
       {
         path: UPLOAD_DATA,
         element: <UploadData />,
       },
       {
+        // Route for the home page
+        // Route for the notifications page
         path: NOTIFICATIONS,
         element: <Notifications />,
       },
       {
+        // Route for the pending requests page
         path: PENDING_REQUESTS,
         element: <PendingRequests />,
       },
@@ -51,12 +59,14 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        // Route for the settings page
         path: SETTINGS,
         element: <Settings />,
       },
     ],
   },
   {
+    // Catch-all route for undefined paths, rendering a "Page Not Found" component
     path: "*",
     element: <PageNotFound />,
   },

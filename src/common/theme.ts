@@ -1,4 +1,5 @@
 import { extendTheme } from "@mui/joy/styles";
+
 import { Colors } from "./colors";
 
 // Extend Joy UI theme types to include lime color
@@ -60,7 +61,9 @@ declare module "@mui/joy/styles" {
 
 // Custom theme configuration for Joy UI
 export const customTheme = extendTheme({
+  // Custom theme configuration for Joy UI, including color schemes and component overrides
   colorSchemes: {
+    // Define color schemes for light and dark modes
     light: {
       palette: {
         neutral: {
@@ -68,6 +71,7 @@ export const customTheme = extendTheme({
           outlinedBg: Colors.BLACK_40,
         },
         lime: {
+          // Custom lime color palette for the application
           50: Colors.LIME_50,
           100: Colors.LIME_100,
           200: Colors.LIME_200,
@@ -95,6 +99,7 @@ export const customTheme = extendTheme({
     },
   },
   components: {
+    // Component-specific style overrides
     JoyButton: {
       styleOverrides: {
         root: ({ ownerState }) => ({
@@ -145,9 +150,9 @@ export const customTheme = extendTheme({
             ownerState.variant === "outlined" && {
               borderColor: Colors.BLACK_30,
               backgroundColor: Colors.BLACK_20,
-              '&:focus-within': {
-                '--Input-focusedThickness': '1px',
-                '--Input-focusedHighlight': Colors.LIME_10,
+              "&:focus-within": {
+                "--Input-focusedThickness": "1px",
+                "--Input-focusedHighlight": Colors.LIME_10,
               },
             }),
         }),
@@ -174,6 +179,7 @@ export const customTheme = extendTheme({
     },
   },
   typography: {
+    // Custom typography styles for various text sizes and weights
     "32-semibold": {
       fontSize: "2rem",
       lineHeight: "2.5rem",
@@ -279,5 +285,5 @@ export const customTheme = extendTheme({
       lineHeight: "1rem",
       fontWeight: "normal",
     },
-  }
+  },
 });
