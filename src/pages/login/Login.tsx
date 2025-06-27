@@ -1,8 +1,21 @@
-import { SignedOut, SignInButton, SignUpButton } from "@clerk/clerk-react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 import { Box, Button, Stack, Typography } from "@mui/joy";
+import { SignedOut, SignInButton, SignUpButton } from "@clerk/clerk-react";
+
 import { HOME } from "../../urls";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the user is already signed in and redirect to HOME
+    const isSignedIn = localStorage.getItem("isSignedIn"); // Replace with actual auth check
+    if (isSignedIn) {
+      navigate(HOME);
+    }
+  }, [navigate]);
+
   return (
     <SignedOut>
       <Box
