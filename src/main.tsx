@@ -6,7 +6,7 @@ import { ClerkProvider } from "@clerk/clerk-react";
 
 import "../index.css";
 import App from "./App.tsx";
-import { HOME } from "./urls.ts";
+import { HOME, LOGIN } from "./urls.ts";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 // Fetch the Clerk publishable key from environment variables
@@ -22,6 +22,8 @@ createRoot(document.getElementById("root")!).render(
     <ClerkProvider
       publishableKey={PUBLISHABLE_KEY}
       afterSignOutUrl="/"
+      signInUrl={LOGIN}
+      signInForceRedirectUrl={HOME}
       signInFallbackRedirectUrl={HOME}
       signUpFallbackRedirectUrl={HOME}
     >
