@@ -1,6 +1,5 @@
 import { Stack } from "@mui/joy";
 import { useEffect } from "react";
-import { SignedIn } from "@clerk/clerk-react";
 import { Outlet, useNavigate } from "react-router";
 
 import SideNavTabs from "../../components/SideNavTabs";
@@ -16,25 +15,22 @@ const Layout = () => {
   }, [navigate]);
 
   return (
-    <SignedIn>
-      {/* Render the layout only when the user is signed in */}
-      <Stack direction="row" width="100%" height="100%">
-        {/* Main container for the layout, including navigation and content */}
-        <Stack
-          // Sidebar stack for navigation and user actions
-          py="1rem"
-          width="5rem"
-          alignItems="center"
-          justifyContent="space-between"
-        >
-          <SideNavTabs />
-          <CustomUserButton />
-          {/* User button for account-related actions */}
-        </Stack>
-        <Outlet />
-        {/* Placeholder for rendering the active route's content */}
+    <Stack direction="row" width="100%" height="100%">
+      {/* Main container for the layout, including navigation and content */}
+      <Stack
+        // Sidebar stack for navigation and user actions
+        py="1rem"
+        width="5rem"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <SideNavTabs />
+        <CustomUserButton />
+        {/* User button for account-related actions */}
       </Stack>
-    </SignedIn>
+      <Outlet />
+      {/* Placeholder for rendering the active route's content */}
+    </Stack>
   );
 };
 

@@ -1,30 +1,18 @@
 import React from "react";
 import { Navigate } from "react-router";
-// Import Navigate for programmatic redirection
-import { useAuth } from "@clerk/clerk-react";
-// Import useAuth to check the user's authentication status
 
-import { HOME } from "./urls";
+import { LOGIN } from "./urls";
+import Layout from "./pages/layout/Layout";
+import { useAuth } from "./contexts/useAuth";
 
-const ProtectedRoute = ({
-  element,
-  endpoint,
-}: {
-  element: React.ReactElement;
-  endpoint?: string;
-}) => {
-  const { isSignedIn } = useAuth();
-    // Destructure isSignedIn to determine if the user is authenticated
-  return isSignedIn ? (
-    endpoint === "/" ? (
-      <Navigate to={HOME} replace />
-    ) : (
-      element
-    )
-  ) : (
-    <Navigate to="/" replace />
-  );
+const ProtectedRoute: React.FC = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Navigate to={LOGIN} replace />;
+  }
+
+  return <Layout />;
 };
 
 export default ProtectedRoute;
-// Export the ProtectedRoute component for use in route configuration
