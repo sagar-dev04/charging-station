@@ -7,6 +7,7 @@ import {
   TabList,
   Typography,
   IconButton,
+  Tooltip,
 } from "@mui/joy";
 import { useState } from "react";
 import { LuUpload } from "react-icons/lu";
@@ -83,9 +84,11 @@ const Home = () => {
             {homeTabs[index].label}
           </Typography>
           <Stack direction="row" gap="1rem">
-            <IconButton size="lg" variant="outlined">
-              <PiClockCounterClockwiseBold fontSize="1.4rem" />
-            </IconButton>
+            <Tooltip title="History" variant="outlined" placement="top">
+              <IconButton size="lg" variant="outlined">
+                <PiClockCounterClockwiseBold fontSize="1.4rem" />
+              </IconButton>
+            </Tooltip>
             <Button
               size="lg"
               color="neutral"
@@ -94,9 +97,11 @@ const Home = () => {
             >
               Edit Variables
             </Button>
-            <IconButton size="lg" variant="outlined">
-              <LuUpload fontSize="1.4rem" />
-            </IconButton>
+            <Tooltip title="Upload" variant="outlined" placement="top">
+              <IconButton size="lg" variant="outlined">
+                <LuUpload fontSize="1.4rem" />
+              </IconButton>
+            </Tooltip>
           </Stack>
         </Stack>
         <BestScenariosResults />

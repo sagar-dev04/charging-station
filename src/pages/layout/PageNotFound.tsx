@@ -16,7 +16,7 @@ const PageNotFound = () => {
       justifyContent="center"
     >
       {/* Centered stack for displaying the 404 image and navigation button */}
-      <img src="../../../public/page_not_found.svg" alt="404 Not Found" />
+      <img src="/page_not_found.svg" alt="404 Not Found" />
       {/* Image representing the 404 error */}
       <Button color="lime" onClick={() => navigate(HOME)}>
         Go to Home
