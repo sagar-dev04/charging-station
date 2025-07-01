@@ -20,10 +20,8 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     {/* Enable React's StrictMode for highlighting potential issues */}
     <ClerkProvider
+      afterSignOutUrl={LOGIN}
       publishableKey={PUBLISHABLE_KEY}
-      afterSignOutUrl="/"
-      signInUrl={LOGIN}
-      signInForceRedirectUrl={HOME}
       signInFallbackRedirectUrl={HOME}
       signUpFallbackRedirectUrl={HOME}
     >
